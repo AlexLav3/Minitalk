@@ -1,40 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elavrich <elavrich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/21 20:22:12 by elavrich          #+#    #+#             */
-/*   Updated: 2024/09/21 20:34:27 by elavrich         ###   ########.fr       */
+/*   Created: 2024/09/19 20:13:27 by elavrich          #+#    #+#             */
+/*   Updated: 2024/12/15 02:14:00 by elavrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+//#include "ft_strlen.c"
 
-size_t	ft_strlcat(char *dst, const char *src, size_t size)
+static char	*ft_strcpy(char *dest, const char *libft)
 {
-	size_t	i;
-	size_t	j;
-	size_t	dst_len;
-	size_t	src_len;
+	unsigned int	i;
 
 	i = 0;
-	j = 0;
-	dst_len = ft_strlen(dst);
-	src_len = ft_strlen(src);
-	if (size == 0)
-		return (src_len);
-	if (size <= dst_len)
-		return (src_len + size);
-	while (dst[i] != '\0')
-		i++;
-	while (src[j] != '\0' && i < size - 1)
+	while (libft[i])
 	{
-		dst[i] = src[j];
+		dest[i] = libft[i];
 		i++;
-		j++;
 	}
-	dst[i] = '\0';
-	return (dst_len + src_len);
+	dest[i] = '\0';
+	return (dest);
 }
+
+char	*ft_strdup(const char *s)
+{
+	char	*dst;
+
+	dst = malloc(ft_strlen(s) + 1);
+	if (!dst)
+		return (NULL);
+	ft_strcpy(dst, s);
+	return (dst);
+}
+
+// int	main(void)
+// {
+// 	printf("%s", ft_strdup("dsgggfdfsdgf"));
+// }

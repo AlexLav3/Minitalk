@@ -6,11 +6,11 @@
 /*   By: elavrich <elavrich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 21:39:18 by elavrich          #+#    #+#             */
-/*   Updated: 2024/11/22 18:12:31 by elavrich         ###   ########.fr       */
+/*   Updated: 2024/12/15 02:12:44 by elavrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "libft.h"
 
 // Ensures read_line is initialized as an empty string if it is NULL
 char	*norm(char *read_line)

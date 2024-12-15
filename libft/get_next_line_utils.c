@@ -6,11 +6,11 @@
 /*   By: elavrich <elavrich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 21:39:29 by elavrich          #+#    #+#             */
-/*   Updated: 2024/12/05 18:08:37 by elavrich         ###   ########.fr       */
+/*   Updated: 2024/12/15 02:12:44 by elavrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "libft.h"
 
 int	ft_strlen_g(char *str)
 {

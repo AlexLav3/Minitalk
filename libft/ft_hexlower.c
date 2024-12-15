@@ -1,25 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_chosehex.c                                      :+:      :+:    :+:   */
+/*   ft_hexlower.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elavrich <elavrich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/26 21:20:39 by elavrich          #+#    #+#             */
-/*   Updated: 2024/10/01 20:21:54 by elavrich         ###   ########.fr       */
+/*   Created: 2024/09/26 16:30:50 by elavrich          #+#    #+#             */
+/*   Updated: 2024/12/15 02:12:51 by elavrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_chosehex(int n, const char *format)
+int	ft_hexlower(int n, const char *format)
 {
-	int	count;
+	char			*symbols;
+	unsigned int	value;
+	unsigned int	nn;
 
-	count = 0;
-	if (ft_c(format) == 'x')
-		count += ft_hexlower(n, format);
-	else
-		count += ft_hexupper(n, format);
-	return (count);
+	value = 0;
+	symbols = "0123456789abcdef";
+	nn = (unsigned int)n;
+	if (nn >= 16)
+	{
+		value += ft_hexlower(nn / 16, format);
+	}
+	value += write(1, &symbols[nn % 16], 1);
+	return (value);
 }

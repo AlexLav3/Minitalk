@@ -6,14 +6,14 @@
 /*   By: elavrich <elavrich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 16:00:02 by elavrich          #+#    #+#             */
-/*   Updated: 2024/09/18 16:12:34 by elavrich         ###   ########.fr       */
+/*   Updated: 2024/12/15 02:14:00 by elavrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <string.h>
 
-void	*ft_memcpy(void *dest, const void *src, size_t n)
+void	*ft_memcpy(void *dest, const void *libft, size_t n)
 {
 	size_t	i;
 	char	*char_ptr;
@@ -21,8 +21,8 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 
 	i = 0;
 	char_ptr = (char *)dest;
-	char_ptr2 = (char *)src;
-	if (n == 0 || dest == src)
+	char_ptr2 = (char *)libft;
+	if (n == 0 || dest == libft)
 	{
 		return (dest);
 	}
@@ -36,12 +36,12 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 // int	main(void)
 // {
 // 	char	dest[90] = "";
-// 	char	src[90] = "";
+// 	char	libft[90] = "";
 // 	char	dest2[90] = "";
-// 	char	src2[90] = "";
+// 	char	libft2[90] = "";
 
-// 	ft_memcpy(dest, src, 9);
-// 	memcpy(dest2, src2, 9);
+// 	ft_memcpy(dest, libft, 9);
+// 	memcpy(dest2, libft2, 9);
 // 	printf("%s", dest);
 // 	printf("\n");
 // 	printf("%s", dest2);

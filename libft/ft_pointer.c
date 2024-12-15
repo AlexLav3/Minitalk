@@ -6,11 +6,11 @@
 /*   By: elavrich <elavrich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/26 15:37:47 by elavrich          #+#    #+#             */
-/*   Updated: 2024/10/01 20:20:51 by elavrich         ###   ########.fr       */
+/*   Updated: 2024/12/15 02:17:12 by elavrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
 unsigned long	ft_ptr(unsigned long num)
 {

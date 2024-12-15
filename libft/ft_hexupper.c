@@ -1,38 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_hexupper.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elavrich <elavrich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/16 15:59:52 by elavrich          #+#    #+#             */
-/*   Updated: 2024/09/17 21:30:59 by elavrich         ###   ########.fr       */
+/*   Created: 2024/09/26 16:34:38 by elavrich          #+#    #+#             */
+/*   Updated: 2024/12/15 02:12:51 by elavrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <strings.h>
 
-void	ft_bzero(void *s, size_t n)
+int	ft_hexupper(int n, const char *format)
 {
-	size_t	i;
-	char	*char_ptr;
+	char			*symbols;
+	int				value;
+	unsigned int	nn;
 
-	i = 0;
-	char_ptr = (char *)s;
-	while (i < n)
+	nn = (unsigned int)n;
+	value = 0;
+	symbols = "0123456789ABCDEF";
+	if (nn >= 16)
 	{
-		char_ptr[i] = 0;
-		i++;
+		value += ft_hexupper(nn / 16, format);
 	}
+	value += write(1, &symbols[nn % 16], 1);
+	return (value);
 }
-
-// int	main(void)
-// {
-// 	char	str[90] = "erkgherkghfd0ukgauh";
-// 	char	str2[90] = "erkgherkghfd0ukgauh";
-
-// 	bzero(str, 20);
-// 	ft_bzero(str2, 20);
-// 	printf("%s, %s", str, str2);
-// }

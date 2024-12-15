@@ -1,25 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_chosenbr.c                                      :+:      :+:    :+:   */
+/*   ft_putnewl.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elavrich <elavrich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/26 22:23:26 by elavrich          #+#    #+#             */
-/*   Updated: 2024/10/01 20:22:04 by elavrich         ###   ########.fr       */
+/*   Created: 2024/09/19 19:56:22 by elavrich          #+#    #+#             */
+/*   Updated: 2024/12/15 02:12:43 by elavrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_chosenbr(int n, const char *format)
+void	ft_newl(void)
 {
-	int	count;
-
-	count = 0;
-	if (ft_c(format) == 'u')
-		count += ft_putunsint(n, format);
-	else
-		count += ft_putnbr(n, format);
-	return (count);
+	write(1, "\n", 1);
 }

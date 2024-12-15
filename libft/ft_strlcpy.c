@@ -1,30 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_hexlower.c                                      :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elavrich <elavrich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/26 16:30:50 by elavrich          #+#    #+#             */
-/*   Updated: 2024/09/27 16:57:57 by elavrich         ###   ########.fr       */
+/*   Created: 2024/09/19 19:58:10 by elavrich          #+#    #+#             */
+/*   Updated: 2024/12/15 02:14:00 by elavrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_hexlower(int n, const char *format)
+size_t	ft_strlcpy(char *dst, char *libft, size_t size)
 {
-	char			*symbols;
-	unsigned int	value;
-	unsigned int	nn;
+	size_t	i;
+	size_t	j;
 
-	value = 0;
-	symbols = "0123456789abcdef";
-	nn = (unsigned int)n;
-	if (nn >= 16)
+	i = 0;
+	j = 0;
+	while (libft[j])
+		j++;
+	if (size == 0)
+		return (j);
+	while (libft[i] && i < (size - 1))
 	{
-		value += ft_hexlower(nn / 16, format);
+		dst[i] = libft[i];
+		i++;
 	}
-	value += write(1, &symbols[nn % 16], 1);
-	return (value);
+	dst[i] = '\0';
+	return (j);
 }

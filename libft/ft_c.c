@@ -6,11 +6,11 @@
 /*   By: elavrich <elavrich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/26 16:25:05 by elavrich          #+#    #+#             */
-/*   Updated: 2024/10/01 20:19:37 by elavrich         ###   ########.fr       */
+/*   Updated: 2024/12/15 02:12:50 by elavrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
 char	ft_c(const char *format)
 {

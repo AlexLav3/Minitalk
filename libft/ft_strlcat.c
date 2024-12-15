@@ -1,47 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elavrich <elavrich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/16 16:00:09 by elavrich          #+#    #+#             */
-/*   Updated: 2024/09/21 21:27:27 by elavrich         ###   ########.fr       */
+/*   Created: 2024/09/21 20:22:12 by elavrich          #+#    #+#             */
+/*   Updated: 2024/12/15 02:14:00 by elavrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dest, const void *src, size_t n)
+size_t	ft_strlcat(char *dst, const char *libft, size_t size)
 {
 	size_t	i;
+	size_t	j;
+	size_t	dst_len;
+	size_t	libft_len;
 
 	i = 0;
-	if (n == 0 || dest == src)
-		return (dest);
-	if (dest > src)
+	j = 0;
+	dst_len = ft_strlen(dst);
+	libft_len = ft_strlen(libft);
+	if (size == 0)
+		return (libft_len);
+	if (size <= dst_len)
+		return (libft_len + size);
+	while (dst[i] != '\0')
+		i++;
+	while (libft[j] != '\0' && i < size - 1)
 	{
-		i = n;
-		while (i > 0)
-		{
-			i--;
-			*(char *)(dest + i) = *(char *)(src + i);
-		}
+		dst[i] = libft[j];
+		i++;
+		j++;
 	}
-	else
-	{
-		while (i < n)
-		{
-			*(char *)(dest + i) = *(char *)(src + i);
-			i++;
-		}
-	}
-	return (dest);
+	dst[i] = '\0';
+	return (dst_len + libft_len);
 }
-// int main()
-// {
-// 	char dest[90] = "kkkk";
-// 	char src[90] = "gdgfdg";
-// 	ft_memmove(dest, src, 8);
-// 	printf("%s", dest);
-// }

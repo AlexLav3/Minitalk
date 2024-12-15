@@ -6,21 +6,21 @@
 /*   By: elavrich <elavrich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 19:55:52 by elavrich          #+#    #+#             */
-/*   Updated: 2024/09/21 16:31:43 by elavrich         ###   ########.fr       */
+/*   Updated: 2024/12/15 02:14:00 by elavrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 //#include "ft_strlen.c"
 #include "libft.h"
 
-static char	*ft_strncpy_2(char *dest, const char *src, unsigned int n)
+static char	*ft_strncpy_2(char *dest, const char *libft, unsigned int n)
 {
 	unsigned int	i;
 
 	i = 0;
-	while (src[i] && i < n)
+	while (libft[i] && i < n)
 	{
-		dest[i] = src[i];
+		dest[i] = libft[i];
 		i++;
 	}
 	while (i < n)
