@@ -6,7 +6,7 @@
 /*   By: elavrich <elavrich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 02:02:19 by elavrich          #+#    #+#             */
-/*   Updated: 2024/12/15 23:46:33 by elavrich         ###   ########.fr       */
+/*   Updated: 2024/12/16 00:03:24 by elavrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,10 @@ void	receive(int signal)
 	static int	bit;
 	static int	i;
 
-	i = 0;
 	if (signal == SIGUSR1)
 		i |= (0x01 << bit);
+	else if (signal == SIGUSR2)
+		i &= ~(0x01 << bit);
 	bit++;
 	if (bit == 8)
 	{
