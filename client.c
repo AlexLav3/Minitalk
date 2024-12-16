@@ -6,7 +6,7 @@
 /*   By: elavrich <elavrich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 02:02:10 by elavrich          #+#    #+#             */
-/*   Updated: 2024/12/16 00:05:22 by elavrich         ###   ########.fr       */
+/*   Updated: 2024/12/16 20:12:32 by elavrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-void	send(int pid, char c)
+void	send_bits(int pid, char c)
 {
 	int	bit;
 
@@ -43,10 +43,9 @@ int	main(int argc, char *argv[])
 		pid = ft_atoi(argv[1]);
 		while (argv[2][i])
 		{
-			send(pid, argv[2][i]);
+			send_bits(pid, argv[2][i]);
 			i++;
 		}
-		send(pid, '\n');
 	}
 	else
 	{
