@@ -6,7 +6,7 @@
 /*   By: elavrich <elavrich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 02:02:19 by elavrich          #+#    #+#             */
-/*   Updated: 2024/12/21 20:43:29 by elavrich         ###   ########.fr       */
+/*   Updated: 2024/12/21 21:12:36 by elavrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	receive(int signal)
 		i = 0;
 	}
 }
-//pause waits for signal
+
 int	main(int argc, char **argv)
 {
 	int	pid;

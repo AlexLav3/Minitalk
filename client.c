@@ -6,7 +6,7 @@
 /*   By: elavrich <elavrich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 02:02:10 by elavrich          #+#    #+#             */
-/*   Updated: 2024/12/21 20:47:31 by elavrich         ###   ########.fr       */
+/*   Updated: 2024/12/21 21:10:58 by elavrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,8 @@ int	main(int argc, char *argv[])
 		i = 0;
 		while (k < argc)
 		{
-			while (argv[k][i])
-			{
+			while (argv[k][i++])
 				send_bits(pid, argv[k][i]);
-				i++;
-			}
 			send_bits(pid, ' ');
 			i = 0;
 			k++;
@@ -58,9 +55,6 @@ int	main(int argc, char *argv[])
 		send_bits(pid, '\0');
 	}
 	else
-	{
-		ft_printf("Error\n");
-		return (1);
-	}
+		return (ft_printf("Error\n"), 1);
 	return (0);
 }
