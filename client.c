@@ -6,7 +6,7 @@
 /*   By: elavrich <elavrich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 02:02:10 by elavrich          #+#    #+#             */
-/*   Updated: 2024/12/16 20:12:32 by elavrich         ###   ########.fr       */
+/*   Updated: 2024/12/21 20:47:31 by elavrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,25 +27,35 @@ void	send_bits(int pid, char c)
 		else
 			kill(pid, SIGUSR2);
 		bit++;
-		usleep(100);
+		usleep(250);
 	}
 }
 
 int	main(int argc, char *argv[])
 {
-	int pid;
-	int i;
+	int	pid;
+	int	i;
+	int	k;
 
+	k = 2;
 	i = 0;
 	pid = 0;
 	if (argc > 2)
 	{
 		pid = ft_atoi(argv[1]);
-		while (argv[2][i])
+		i = 0;
+		while (k < argc)
 		{
-			send_bits(pid, argv[2][i]);
-			i++;
+			while (argv[k][i])
+			{
+				send_bits(pid, argv[k][i]);
+				i++;
+			}
+			send_bits(pid, ' ');
+			i = 0;
+			k++;
 		}
+		send_bits(pid, '\0');
 	}
 	else
 	{

@@ -6,7 +6,7 @@
 /*   By: elavrich <elavrich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 02:02:19 by elavrich          #+#    #+#             */
-/*   Updated: 2024/12/16 20:01:32 by elavrich         ###   ########.fr       */
+/*   Updated: 2024/12/21 20:43:29 by elavrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,13 @@
 #include <stdlib.h>
 #include <unistd.h>
 
+char	g_message[1024];
+
 void	receive(int signal)
 {
 	static int	bit;
 	static int	i;
+	int			len;
 
 	if (signal == SIGUSR1)
 		i |= (0x01 << bit);
@@ -27,7 +30,13 @@ void	receive(int signal)
 	bit++;
 	if (bit == 8)
 	{
-		ft_printf("%c", i);
+		len = ft_strlen(g_message);
+		g_message[len] = i;
+		if (i == '\0')
+		{
+			ft_printf("%s", g_message);
+			ft_bzero(g_message, len);
+		}
 		bit = 0;
 		i = 0;
 	}
@@ -35,7 +44,7 @@ void	receive(int signal)
 //pause waits for signal
 int	main(int argc, char **argv)
 {
-	int pid;
+	int	pid;
 
 	pid = getpid();
 	(void)argv;
@@ -45,10 +54,10 @@ int	main(int argc, char **argv)
 		return (0);
 	}
 	ft_putnbr_fd(pid, 1);
+	signal(SIGUSR1, receive);
+	signal(SIGUSR2, receive);
 	while (argc == 1)
 	{
-		signal(SIGUSR1, receive);
-		signal(SIGUSR2, receive);
 		pause();
 	}
 	return (0);
